@@ -1,0 +1,41 @@
+Inventory
+	itemID - INT Primary key
+	itemName - String
+		Claymore g
+		Naru sword b
+		Kzarka sword y
+		Blackstar sword o
+		fallen god sword r
+		platemail g
+		naru armor b
+		Dim Tree Spirit Armor y
+		Blackstar armor o
+		fallen god r 
+		
+	price - INT
+	rarity - STRING(green/blue/yellow/orange/red)
+	locationID - INT Foreign key referencing StoreLocations.locationID
+	quantity - INT
+
+StoreLocations
+	locationID - INT Primary key
+	locationName - STRING location name
+	goldStorage - INT 
+Employees
+	employeeID - Primary key
+	familyName - STRING
+	playerName - STRING
+	hireDate - DATE
+Customers
+	customerID - INT Primary key
+	familyName - STRING
+	playerName - STRING
+Transactions
+	transactionID - INT Primary key
+	customerID - INT Foreign Key referencing Customers.customerID
+	itemID - INT Foreign key referencing Inventory.itemID
+	quantity - INT 
+	sell - BOOLEAN Checks if the customer is buying or selling. If TRUE, subtract the gold amount(Transactions.quantity * Inventory.price) will be subtracted from the StoreLocations.goldStorage
+
+
+	
